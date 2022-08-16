@@ -2,13 +2,14 @@ package transactionsintests;
 
 import io.micronaut.http.HttpRequest;
 import io.micronaut.http.HttpResponse;
-import io.micronaut.http.client.BlockingHttpClient;
 import io.micronaut.http.client.HttpClient;
 import io.micronaut.http.client.annotation.Client;
-import io.micronaut.test.annotation.TransactionMode;
 import io.micronaut.test.extensions.junit5.annotation.MicronautTest;
 import jakarta.inject.Inject;
-import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.MethodOrderer;
+import org.junit.jupiter.api.Order;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestMethodOrder;
 
 import java.util.Map;
 
@@ -34,7 +35,6 @@ public class WidgetTest {
         assertEquals(OK, response.getStatus());
         assertEquals("Widget Name", response.getBody().get().getName());
     }
-
 
     @Test
     @Order(2)
